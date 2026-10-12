@@ -1,21 +1,17 @@
-import { createElement, icons } from "./lucide.js";
-
 export const $ = (id) => document.getElementById(id);
 
 export function createIcon(name) {
-  return createElement(icons[name], { class: "icon", "aria-hidden": "true" });
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("class", "icon");
+  svg.setAttribute("aria-hidden", "true");
+  const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+  use.setAttribute("href", `#icon-${name}`);
+  svg.append(use);
+  return svg;
 }
 
 export function setIcon(id, name) {
-  const icon = createIcon(name);
-  icon.id = id;
-  $(id).replaceWith(icon);
-}
-
-for (const placeholder of document.querySelectorAll("[data-icon]")) {
-  const icon = createIcon(placeholder.dataset.icon);
-  if (placeholder.id) icon.id = placeholder.id;
-  placeholder.replaceWith(icon);
+  $(id).setAttribute("href", `#icon-${name}`);
 }
 
 export function formatTime(time) {

@@ -1,7 +1,7 @@
 <section id="codePanel" class="dashboard-panel">
   <div class="page-heading">
     <h1>
-      <i data-icon="check"></i>
+      <svg class="icon" aria-hidden="true"><use href="#icon-check" /></svg>
       Asistencia
     </h1>
   </div>
@@ -13,7 +13,7 @@
           >Sin clase</span
         >
         <div id="arrivalCountdown" class="arrival-countdown" hidden>
-          <i data-icon="clock"></i>
+          <svg class="icon" aria-hidden="true"><use href="#icon-clock" /></svg>
           <span
             ><span class="arrival-label">Margen de llegada</span
             ><strong id="arrivalCountdownValue"></strong
@@ -27,7 +27,7 @@
           type="button"
           hidden
         >
-          <i data-icon="plus"></i>
+          <svg class="icon" aria-hidden="true"><use href="#icon-plus" /></svg>
           Abrir registro
         </button>
         <button
@@ -38,7 +38,7 @@
           title="Mostrar código y QR"
           hidden
         >
-          <i data-icon="qr"></i>
+          <svg class="icon" aria-hidden="true"><use href="#icon-qr" /></svg>
         </button>
         <button
           id="closeButton"
@@ -46,7 +46,7 @@
           type="button"
           hidden
         >
-          <i data-icon="close"></i>
+          <svg class="icon" aria-hidden="true"><use href="#icon-close" /></svg>
           Cerrar registro
         </button>
       </div>
@@ -89,7 +89,7 @@
   >
     <div class="dialog-heading">
       <h2>
-        <i data-icon="qr"></i
+        <svg class="icon" aria-hidden="true"><use href="#icon-qr" /></svg
         ><span id="codeDialogTitle">Código de asistencia</span>
       </h2>
       <button
@@ -98,7 +98,7 @@
         type="button"
         aria-label="Cerrar"
       >
-        <i data-icon="close"></i>
+        <svg class="icon" aria-hidden="true"><use href="#icon-close" /></svg>
       </button>
     </div>
     <div id="sessionBlock" class="code-modal-content" hidden>
@@ -118,7 +118,8 @@
   >
     <div class="dialog-heading">
       <h2>
-        <i data-icon="plus" id="registrationDialogIcon"></i
+        <svg class="icon" aria-hidden="true">
+          <use id="registrationDialogIcon" href="#icon-plus" /></svg
         ><span id="registrationDialogTitle"></span>
       </h2>
     </div>
@@ -127,7 +128,7 @@
       <div id="lateMinutesField">
         <label for="lateMinutesInput">Minutos para llegar a tiempo</label>
         <div class="input-with-icon">
-          <i data-icon="clock"></i>
+          <svg class="icon" aria-hidden="true"><use href="#icon-clock" /></svg>
           <input
             id="lateMinutesInput"
             type="number"

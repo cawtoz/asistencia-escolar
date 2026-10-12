@@ -29,8 +29,7 @@ button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
-button:focus-visible,
-input:focus-visible {
+button:focus-visible {
   outline: 3px solid var(--school-button);
   outline-offset: 2px;
 }
@@ -40,6 +39,12 @@ input:focus-visible {
 }
 [hidden] {
   display: none !important;
+}
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 .icon {
   display: inline-block;

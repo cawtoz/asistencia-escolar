@@ -476,6 +476,11 @@ input::placeholder {
 input:hover {
   border-color: #a9b0ba;
 }
+input:focus {
+  border-color: var(--school-button);
+  outline: none;
+  box-shadow: none;
+}
 .form-submit {
   margin-top: 22px;
 }
