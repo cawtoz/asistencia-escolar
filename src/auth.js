@@ -12,14 +12,6 @@ function hashPassword(password) {
   return `${salt}:${hash}`;
 }
 
-function validPassword(password) {
-  return (
-    typeof password === "string" &&
-    password.length >= 8 &&
-    password.length <= 100
-  );
-}
-
 function verifyPassword(password, stored) {
   const [salt, expectedHex] = stored.split(":");
   const expected = Buffer.from(expectedHex, "hex");
@@ -33,9 +25,6 @@ function createAuth(db, dataDir) {
   function setupTeacher() {
     const identifier = process.env.TEACHER_ID || "profesor";
     const configuredPassword = process.env.TEACHER_PASSWORD;
-    if (configuredPassword && !validPassword(configuredPassword)) {
-      throw new Error("TEACHER_PASSWORD debe tener entre 8 y 100 caracteres.");
-    }
 
     const existing = db
       .prepare(
@@ -136,7 +125,6 @@ function createAuth(db, dataDir) {
       .get(identifier);
     if (
       !user ||
-      password.length > 100 ||
       !verifyPassword(password, user.password_hash)
     ) {
       const recent = attempt && Date.now() - attempt.first < 15 * 60 * 1000;
@@ -220,11 +208,8 @@ function createAuth(db, dataDir) {
 
     if (duplicate)
       throw new HttpError(409, "Ese estudiante ya existe. Usa Editar.");
-    if (!validPassword(body.password)) {
-      throw new HttpError(
-        400,
-        "La contraseña debe tener entre 8 y 100 caracteres.",
-      );
+    if (typeof body.password !== "string" || !body.password) {
+      throw new HttpError(400, "Escribe una contraseña.");
     }
     db.prepare(
       "INSERT INTO users (identifier, name, role, password_hash) VALUES (?, ?, 'student', ?)",
@@ -239,12 +224,6 @@ function createAuth(db, dataDir) {
       throw new HttpError(400, "La contraseña no es válida.");
     }
     const customPassword = passwordInput || "";
-    if (customPassword && !validPassword(customPassword)) {
-      throw new HttpError(
-        400,
-        "La contraseña debe tener entre 8 y 100 caracteres.",
-      );
-    }
     const temporaryPassword =
       customPassword || crypto.randomBytes(9).toString("base64url");
     db.prepare("UPDATE users SET password_hash = ? WHERE id = ?").run(
