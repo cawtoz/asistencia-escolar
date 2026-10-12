@@ -1,0 +1,159 @@
+<section id="codePanel" class="dashboard-panel">
+  <div class="page-heading">
+    <h1>
+      <i data-icon="check"></i>
+      Asistencia
+    </h1>
+  </div>
+
+  <div class="panel-card class-panel">
+    <div class="class-toolbar">
+      <div class="class-status">
+        <span id="sessionBadge" class="status-badge" role="status"
+          >Sin clase</span
+        >
+        <div id="arrivalCountdown" class="arrival-countdown" hidden>
+          <i data-icon="clock"></i>
+          <span
+            ><span class="arrival-label">Margen de llegada</span
+            ><strong id="arrivalCountdownValue"></strong
+          ></span>
+        </div>
+      </div>
+      <div class="class-actions">
+        <button
+          id="startButton"
+          class="button button-primary"
+          type="button"
+          hidden
+        >
+          <i data-icon="plus"></i>
+          Abrir registro
+        </button>
+        <button
+          id="showCodeButton"
+          class="button button-primary qr-trigger"
+          type="button"
+          aria-label="Mostrar código y QR"
+          title="Mostrar código y QR"
+          hidden
+        >
+          <i data-icon="qr"></i>
+        </button>
+        <button
+          id="closeButton"
+          class="button button-outline"
+          type="button"
+          hidden
+        >
+          <i data-icon="close"></i>
+          Cerrar registro
+        </button>
+      </div>
+    </div>
+    <p id="teacherMessage" class="message" role="status" hidden></p>
+    <div class="attendance-section">
+      <div class="panel-title-row">
+        <h2>Estudiantes</h2>
+      </div>
+      <div
+        class="attendance-filters"
+        role="group"
+        aria-label="Mostrar estudiantes"
+      >
+        <button
+          id="registeredFilter"
+          class="attendance-filter active"
+          type="button"
+          aria-pressed="true"
+        >
+          Registrados <span id="count" class="count-badge">0</span>
+        </button>
+        <button
+          id="pendingFilter"
+          class="attendance-filter"
+          type="button"
+          aria-pressed="false"
+        >
+          Pendientes <span id="pendingCount" class="count-badge">0</span>
+        </button>
+      </div>
+      <div id="attendance" class="table-wrap"></div>
+    </div>
+  </div>
+
+  <dialog
+    id="codeDialog"
+    class="student-dialog code-dialog"
+    aria-labelledby="codeDialogTitle"
+  >
+    <div class="dialog-heading">
+      <h2>
+        <i data-icon="qr"></i
+        ><span id="codeDialogTitle">Código de asistencia</span>
+      </h2>
+      <button
+        id="closeCodeDialogButton"
+        class="dialog-close"
+        type="button"
+        aria-label="Cerrar"
+      >
+        <i data-icon="close"></i>
+      </button>
+    </div>
+    <div id="sessionBlock" class="code-modal-content" hidden>
+      <div>
+        <span class="code-label">Código de 6 dígitos</span>
+        <div id="sessionInfo" class="code"></div>
+      </div>
+      <div id="qr" aria-label="Código QR de la clase"></div>
+    </div>
+  </dialog>
+
+  <dialog
+    id="registrationDialog"
+    class="student-dialog"
+    aria-labelledby="registrationDialogTitle"
+    aria-describedby="registrationDialogDescription"
+  >
+    <div class="dialog-heading">
+      <h2>
+        <i data-icon="plus" id="registrationDialogIcon"></i
+        ><span id="registrationDialogTitle"></span>
+      </h2>
+    </div>
+    <div class="dialog-body">
+      <p id="registrationDialogDescription" class="confirmation-copy"></p>
+      <div id="lateMinutesField">
+        <label for="lateMinutesInput">Minutos para llegar a tiempo</label>
+        <div class="input-with-icon">
+          <i data-icon="clock"></i>
+          <input
+            id="lateMinutesInput"
+            type="number"
+            min="0"
+            max="120"
+            step="1"
+            value="10"
+            required
+          />
+        </div>
+      </div>
+      <p id="registrationDialogMessage" class="message" role="alert" hidden></p>
+      <div class="actions dialog-actions">
+        <button
+          id="cancelRegistrationButton"
+          class="button button-outline"
+          type="button"
+        >
+          Cancelar
+        </button>
+        <button
+          id="confirmRegistrationButton"
+          class="button button-primary"
+          type="button"
+        ></button>
+      </div>
+    </div>
+  </dialog>
+</section>

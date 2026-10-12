@@ -1,0 +1,190 @@
+<section id="studentsPanel" class="dashboard-panel" hidden>
+  <div class="page-heading heading-with-action">
+    <div>
+      <h1>
+        <i data-icon="users"></i>
+        Estudiantes
+      </h1>
+    </div>
+    <button id="newStudentButton" class="button button-primary" type="button">
+      <i data-icon="plus"></i> Nuevo estudiante
+    </button>
+  </div>
+  <p id="accountMessage" class="message" role="status" hidden></p>
+  <div class="panel-card list-card">
+    <div class="panel-title-row">
+      <h2>Lista de estudiantes</h2>
+      <span id="studentCount" class="count-badge">0</span>
+    </div>
+    <div id="students" class="table-wrap"></div>
+  </div>
+
+  <dialog
+    id="studentDialog"
+    class="student-dialog"
+    aria-labelledby="studentDialogTitle"
+  >
+    <div class="dialog-heading">
+      <h2>
+        <i data-icon="plus" id="studentDialogIcon"></i
+        ><span id="studentDialogTitle">Nuevo estudiante</span>
+      </h2>
+      <button
+        id="closeStudentDialogButton"
+        class="dialog-close"
+        type="button"
+        aria-label="Cerrar"
+      >
+        <i data-icon="close"></i>
+      </button>
+    </div>
+    <form id="studentAccountForm" class="dialog-body">
+      <div class="field-pair">
+        <div>
+          <label for="newStudentId">Tarjeta de identidad</label>
+          <div class="input-with-icon">
+            <i data-icon="id"></i
+            ><input
+              id="newStudentId"
+              inputmode="numeric"
+              pattern="[0-9]{5,20}"
+              required
+            />
+          </div>
+        </div>
+        <div>
+          <label for="newStudentName">Nombre completo</label>
+          <div class="input-with-icon">
+            <i data-icon="user"></i
+            ><input id="newStudentName" maxlength="80" required />
+          </div>
+        </div>
+      </div>
+      <div id="initialPasswordField">
+        <label for="newStudentPassword">Contraseña inicial</label>
+        <div class="input-with-icon">
+          <i data-icon="lock"></i
+          ><input
+            id="newStudentPassword"
+            type="text"
+            minlength="8"
+            maxlength="100"
+            autocomplete="off"
+            required
+          />
+        </div>
+      </div>
+      <p id="studentFormMessage" class="message" role="alert" hidden></p>
+      <div class="actions dialog-actions">
+        <button
+          id="cancelStudentButton"
+          class="button button-outline"
+          type="button"
+        >
+          Cancelar
+        </button>
+        <button
+          id="saveStudentButton"
+          class="button button-primary"
+          type="submit"
+        >
+          <i data-icon="check"></i>
+          Guardar
+        </button>
+      </div>
+    </form>
+    <div id="resetStudentView" class="dialog-body" hidden>
+      <p id="resetPrompt" class="dialog-copy"></p>
+      <div id="resetPasswordField">
+        <label for="resetPasswordInput">Nueva contraseña (opcional)</label>
+        <div class="input-with-icon">
+          <i data-icon="lock"></i>
+          <input
+            id="resetPasswordInput"
+            type="text"
+            minlength="8"
+            maxlength="100"
+            autocomplete="off"
+            placeholder="Déjala vacía para generar una"
+          />
+        </div>
+      </div>
+      <div id="resetPasswordResult" hidden>
+        <p class="dialog-copy">
+          Comparte esta nueva contraseña con el estudiante. La anterior ya no
+          funciona.
+        </p>
+        <div class="password-result">
+          <code id="temporaryPassword"></code
+          ><button
+            id="copyPasswordButton"
+            class="button button-outline"
+            type="button"
+          >
+            <i data-icon="copy"></i>
+            Copiar
+          </button>
+        </div>
+      </div>
+      <p id="resetMessage" class="message" role="alert" hidden></p>
+      <div class="actions dialog-actions">
+        <button
+          id="cancelResetButton"
+          class="button button-outline"
+          type="button"
+        >
+          Cancelar
+        </button>
+        <button
+          id="confirmResetButton"
+          class="button button-primary"
+          type="button"
+        >
+          <i data-icon="lock"></i>
+          Restablecer clave
+        </button>
+        <button
+          id="doneResetButton"
+          class="button button-primary"
+          type="button"
+          hidden
+        >
+          Listo
+        </button>
+      </div>
+    </div>
+  </dialog>
+  <dialog
+    id="deleteStudentDialog"
+    class="student-dialog"
+    aria-labelledby="deleteStudentTitle"
+    aria-describedby="deleteStudentPrompt"
+  >
+    <div class="dialog-heading">
+      <h2>
+        <i data-icon="trash"></i
+        ><span id="deleteStudentTitle">Eliminar estudiante</span>
+      </h2>
+    </div>
+    <div class="dialog-body">
+      <p id="deleteStudentPrompt" class="confirmation-copy"></p>
+      <p id="deleteStudentMessage" class="message" role="alert" hidden></p>
+      <div class="actions dialog-actions">
+        <button
+          id="cancelDeleteStudentButton"
+          class="button button-outline"
+          type="button"
+        >
+          Cancelar
+        </button>
+        <button
+          id="confirmDeleteStudentButton"
+          class="button button-primary"
+          type="button"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </dialog>
+</section>

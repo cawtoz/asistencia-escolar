@@ -1,0 +1,170 @@
+:root {
+  --school-button-hover: #955700;
+  --school-button: #ac6500;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  color: #35383d;
+  background: #eef0f5;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  min-width: 320px;
+  margin: 0;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--school-button);
+  outline-offset: 2px;
+}
+::selection {
+  color: #fff;
+  background: var(--school-button);
+}
+[hidden] {
+  display: none !important;
+}
+.icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.22em;
+}
+.app-frame {
+  width: 100%;
+}
+.view-login .app-frame {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  padding: 24px 16px;
+}
+.login-card {
+  width: min(480px, 100%);
+  margin: 0;
+}
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.login-brand img {
+  width: 52px;
+  height: 62px;
+  flex: none;
+  object-fit: contain;
+}
+.login-brand strong,
+.login-brand span {
+  display: block;
+}
+.login-brand strong {
+  font-size: 17px;
+}
+.login-brand span {
+  margin-top: 3px;
+  color: #626971;
+  font-size: 14px;
+}
+.student-page {
+  display: flex;
+  width: min(560px, calc(100% - 32px));
+  min-height: 100dvh;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 28px 0;
+}
+.student-topbar,
+.student-brand {
+  display: flex;
+  align-items: center;
+}
+.student-topbar {
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.student-brand {
+  gap: 12px;
+}
+.student-brand img {
+  width: 42px;
+  height: 52px;
+  object-fit: contain;
+}
+.student-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--school-button);
+  border-radius: 0;
+  padding: 9px 12px;
+  color: #fff;
+  background: var(--school-button);
+  font-size: 13px;
+  font-weight: 700;
+}
+.student-logout:hover {
+  background: var(--school-button-hover);
+}
+.student-card {
+  margin-top: 20px;
+}
+.student-success {
+  padding: 42px 28px;
+  text-align: center;
+}
+.student-success h1 {
+  margin: 22px 0 8px;
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 600;
+}
+.student-success p {
+  margin: 0;
+  color: #626971;
+}
+.student-success-time {
+  margin-top: 22px;
+  color: #4b5159;
+  font-size: 14px;
+}
+.success-icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  margin: 0 auto;
+  border-radius: 0;
+  color: #fff;
+  background: var(--school-button);
+}
+.success-icon .icon {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2.4;
+}

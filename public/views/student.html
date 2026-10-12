@@ -1,0 +1,65 @@
+<section id="studentView" class="student-page" hidden>
+  <div class="student-topbar">
+    <div class="student-brand">
+      <img src="/assets/escudo.png" alt="Escudo del colegio" /><strong
+        >Control de asistencia</strong
+      >
+    </div>
+    <button class="logout-button student-logout" type="button">
+      <i data-icon="logout"></i>
+      Cerrar sesión
+    </button>
+  </div>
+  <div id="studentEntry" hidden>
+    <div class="page-heading">
+      <h1>
+        <i data-icon="check"></i>
+        Registrar asistencia
+      </h1>
+      <p>
+        Hola, <span id="studentName"></span>. Escribe el código que muestra tu
+        profesor.
+      </p>
+    </div>
+    <div class="panel-card student-card">
+      <form id="attendanceForm">
+        <label for="code">Código de 6 dígitos</label>
+        <div class="input-with-icon">
+          <i data-icon="code"></i>
+          <input
+            id="code"
+            name="code"
+            inputmode="numeric"
+            pattern="[0-9]{6}"
+            maxlength="6"
+            required
+            placeholder="000000"
+            autocomplete="off"
+          />
+        </div>
+        <button
+          id="registerButton"
+          class="button button-primary form-submit"
+          type="submit"
+        >
+          <i data-icon="check"></i>
+          Registrar asistencia
+        </button>
+      </form>
+      <p id="studentMessage" class="message" role="status" hidden></p>
+    </div>
+  </div>
+  <div
+    id="studentSuccess"
+    class="panel-card student-success"
+    role="status"
+    hidden
+  >
+    <div class="success-icon" aria-hidden="true">
+      <i data-icon="check"></i>
+    </div>
+    <h1 id="studentSuccessTitle">¡Todo listo!</h1>
+    <p>Tu asistencia de hoy está confirmada.</p>
+    <div id="studentSuccessTime" class="student-success-time" hidden></div>
+  </div>
+</section>

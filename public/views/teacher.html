@@ -1,0 +1,56 @@
+<section id="teacherView" class="dashboard" hidden>
+  <div id="sidebarOverlay" class="sidebar-overlay" hidden></div>
+  <aside id="teacherSidebar" class="sidebar" aria-label="Menú del profesor">
+    <div class="sidebar-profile">
+      <img
+        class="sidebar-logo"
+        src="/assets/escudo.png"
+        alt="Escudo del colegio"
+      />
+      <div><strong>Control de asistencia</strong></div>
+    </div>
+    <nav class="dashboard-nav" aria-label="Secciones del panel">
+      <button
+        type="button"
+        data-panel="codePanel"
+        class="nav-button active"
+        aria-current="page"
+      >
+        <span class="nav-symbol" aria-hidden="true"
+          ><i data-icon="check"></i
+        ></span>
+        Asistencia
+      </button>
+      <button type="button" data-panel="studentsPanel" class="nav-button">
+        <span class="nav-symbol" aria-hidden="true"
+          ><i data-icon="users"></i
+        ></span>
+        Estudiantes
+      </button>
+    </nav>
+    <div class="sidebar-account">
+      <strong id="teacherAccountName">Profesor</strong>
+      <span id="teacherAccountId" class="account-id"></span>
+      <button class="logout-button sidebar-logout" type="button">
+        <i data-icon="logout"></i>
+        Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <div class="dashboard-content">
+    <button
+      id="menuButton"
+      class="mobile-menu-button"
+      type="button"
+      aria-label="Abrir menú"
+      aria-controls="teacherSidebar"
+      aria-expanded="false"
+    >
+      <i data-icon="menu"></i>
+      Menú
+    </button>
+    <!-- PANEL_CODE -->
+    <!-- PANEL_STUDENTS -->
+  </div>
+</section>

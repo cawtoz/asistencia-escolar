@@ -1,0 +1,46 @@
+<section id="loginView" class="login-card panel-card">
+  <div class="login-brand">
+    <img src="/assets/escudo.png" alt="Escudo del colegio" />
+    <div>
+      <strong>Plataforma Académica</strong><span>Control de asistencia</span>
+    </div>
+  </div>
+  <div class="page-heading">
+    <h1>
+      <i data-icon="login"></i>
+      Iniciar sesión
+    </h1>
+  </div>
+  <form id="loginForm">
+    <label for="identifier">Usuario o tarjeta de identidad</label>
+    <div class="input-with-icon">
+      <i data-icon="id"></i>
+      <input
+        id="identifier"
+        name="identifier"
+        required
+        autocomplete="username"
+      />
+    </div>
+    <label for="password">Contraseña</label>
+    <div class="input-with-icon">
+      <i data-icon="lock"></i>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        required
+        autocomplete="current-password"
+      />
+    </div>
+    <button
+      id="loginButton"
+      class="button button-primary form-submit"
+      type="submit"
+    >
+      <i data-icon="login"></i>
+      Entrar
+    </button>
+  </form>
+  <p id="loginMessage" class="message" role="status" hidden></p>
+</section>
